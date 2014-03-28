@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Shanghai');
 /**
  * 获取和设置配置参数 支持批量定义
  * 如果$key是关联型数组，则会按K-V的形式写入配置
@@ -162,7 +163,7 @@ class SinglePHP {
      * @param string $class 类名
      */
     public static function autoload($class) {
-        $class = str_replace('_', '/', $class);
+        $class = strtolower(str_replace('_', '/', $class));
         includeIfExist(C('APP_FULL_PATH') . '/' . $class . '.php');
     }
 
