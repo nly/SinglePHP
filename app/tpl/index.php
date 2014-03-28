@@ -3,7 +3,7 @@ $data = array(
     'title' => 'Welcome',
     'body_class' => 'bs-docs-home',
 );
-View::tplInclude('Public/header', $data); ?>
+View::tplInclude('public/header', $data); ?>
 <main class="bs-masthead" id="content" role="main">
   <div class="container">
     <h1>SinglePHP</h1><h2>Deep modified by niulingyun</h2>
@@ -12,4 +12,4 @@ View::tplInclude('Public/header', $data); ?>
     </p>
   </div>
 </main>
-<?php View::tplInclude('Public/footer'); ?>
+<?php View::tplInclude('public/footer'); ?>
