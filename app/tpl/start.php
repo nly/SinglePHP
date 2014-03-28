@@ -2,7 +2,7 @@
 $data = array(
     'title' => '简介',
 );
-View::tplInclude('Public/header', $data); ?>
+View::tplInclude('public/header', $data); ?>
     
     <p>原来的文档不要再看了，基本已经把框架改的面目全非了~~~~~~~~~~~~</p>
     <p>
@@ -106,4 +106,4 @@ View::tplInclude('Public/header', $data); ?>
         6、剩下的就只有一个日志类和异常类了，大家自己去看吧~~~~  12点了，洗洗睡觉吧~~~
     </p>
 
-<?php View::tplInclude('Public/footer'); ?>
+<?php View::tplInclude('public/footer'); ?>
