@@ -108,16 +108,6 @@ function includeIfExist($path) {
  */
 class SinglePHP {
     /**
-     * 控制器
-     * @var string
-     */
-    private $c;
-    /**
-     * Action
-     * @var string
-     */
-    private $a;
-    /**
      * 单例
      * @var SinglePHP
      */
