@@ -1,4 +1,7 @@
 <?php
+// 记录开始运行时间
+$GLOBALS['_beginTime'] = microtime(TRUE);
+register_shutdown_function('shutdown');
 date_default_timezone_set('Asia/Shanghai');
 /**
  * 获取和设置配置参数 支持批量定义
@@ -54,19 +57,37 @@ function W($name, $data = array()) {
 /**
  * 终止程序运行
  * @param string $str 终止原因
- * @param bool $display 是否显示调用栈，默认不显示
+ * @param bool $display 是否显示,默认显示
  * @return void
  */
-function halt($str, $display = false) {
-    Log::fatal($str . ' debug_backtrace:' . var_export(debug_backtrace(), true));
-    header("Content-Type:text/html; charset=utf-8");
+function halt($str, $display = true)
+{
+    Log::fatal($str);
     if ($display) {
-        echo "<pre>";
-        debug_print_backtrace();
-        echo "</pre>";
+        echo $str;
     }
-    echo $str;
-    exit ;
+    exit;
+}
+
+/**
+ * 脚本结束后运行
+ * @return void
+ */
+function shutdown()
+{
+    echo '<hr />';
+    $GLOBALS['_endTime'] = microtime(TRUE);
+    if (C('SHOW_LOAD_TIME')) {
+        echo sprintf('<br />耗时： %.4f ms', ($GLOBALS['_endTime'] - $GLOBALS['_beginTime']) * 1000);
+    }
+    $errorInfo = error_get_last();
+    if ($errorInfo !== null) {
+        Log::fatal($errorInfo['message'] . ' in ' . $errorInfo['file'] . ' at ' . $errorInfo['line']);
+        echo "<br /><br /><font color='red'>程序异常信息：" . $errorInfo['message'] . '</font><br />';
+        echo '出错文件：', $errorInfo['line'], '<br/>';
+        echo '错误行数：', $errorInfo['file'], '<br/>';
+    }
+    exit;
 }
 
 /**
@@ -131,31 +152,38 @@ class SinglePHP {
      * @return void
      */
     public function run() {
-        if (C('USE_SESSION') == true) {
-            session_start();
+        try {
+            if (C('USE_SESSION') == true) {
+                session_start();
+            }
+            C('APP_FULL_PATH', realpath(getcwd() . '/' . C('APP_PATH')));
+            includeIfExist(C('APP_FULL_PATH') . '/common.php');
+            spl_autoload_register(array('SinglePHP', 'autoload'));
+            $pathInfo = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '';
+            $pathInfoArr = array_filter(explode('/', trim($pathInfo, '/')));
+            $length = count($pathInfoArr);
+            if ($length == 0) {
+                $this->c = 'index';
+            } else {
+                $this->c = array_pop($pathInfoArr);
+            }
+            $dirStr = empty($pathInfoArr) ? '' : implode('_', $pathInfoArr) . '_';
+            $controllerClass = 'Controller_' . $dirStr . $this->c;
+            if (!class_exists($controllerClass)) {
+                halt('控制器' . $controllerClass . '不存在');
+            }
+            $controller = new $controllerClass();
+            if (!method_exists($controller, '_run')) {
+                halt('控制器' . $controllerClass . '中方法_run()不存在');
+            }
+            call_user_func(array($controller, '_run')); //程序入口
+        } catch (Exception $e) {
+            echo "<br /><br /><br /><font color='red'>程序异常信息：" . $e->getMessage() . '</font><br />';
+            echo '出错文件：', $e->getFile(), '<br/>';
+            echo '错误行数：', $e->getLine(), '<br/>';
+            echo '<pre>出错代码：<br/>' . $e->getTraceAsString() . '</pre>';
+            die;
         }
-        C('APP_FULL_PATH', realpath(getcwd() . '/' . C('APP_PATH')));
-        includeIfExist(C('APP_FULL_PATH') . '/common.php');
-        spl_autoload_register(array('SinglePHP', 'autoload'));
-        $pathInfo = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '';
-        $pathInfoArr = array_filter(explode('/', trim($pathInfo, '/')));
-        $length = count($pathInfoArr);
-        if ($length == 0) {
-            $this -> c = 'index';
-        } else {
-            $this -> c = array_pop($pathInfoArr);
-        }
-        $dirArr = (array)$pathInfoArr;
-        $dirStr = empty($dirArr) ? '' : implode('_', $dirArr) . '_';
-        $controllerClass = 'Controller_' . $dirStr . $this -> c;
-        if (!class_exists($controllerClass)) {
-            halt('控制器' . $controllerClass . '不存在');
-        }
-        $controller = new $controllerClass();
-        if (!method_exists($controller, '_run')) {
-            halt('控制器'.$controllerClass.'中方法_run()不存在');
-        }
-        call_user_func(array($controller, '_run'));//程序入口
     }
 
     /**
