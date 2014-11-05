@@ -220,6 +220,15 @@ abstract class Dto_Abstract extends \ArrayObject
     }
 
     /**
+     * 获取所有字段名
+     * @return array
+     */
+    public function get_fields()
+    {
+        return array_keys($this->fields);
+    }
+
+    /**
      * 删除所有引用，释放对象
      */
     public function __destruct()
