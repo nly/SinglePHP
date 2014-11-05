@@ -1,0 +1,1 @@
+[ 2014-11-05 21:41:32 ]  [FATAL]  require(): Failed opening required '/Users/leandre/Desktop/work/www/SinglePHP/app/dto/dto_abstract.php' (include_path='.:') in /Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php at 189

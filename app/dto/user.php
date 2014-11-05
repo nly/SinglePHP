@@ -7,11 +7,11 @@
  * @copyright: copyright(2014) leandre.cn
  * @version: 14/10/30
  */
-namespace DataObject;
+namespace DTO;
 
 use Lib\Argchecker\Argchecker;
 
-class User extends Do_Abstract
+class User extends Dto_Abstract
 {
     public $fields = array(
         'id' => array(

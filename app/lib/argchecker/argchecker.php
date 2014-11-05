@@ -9,7 +9,7 @@
  */
 namespace Lib\Argchecker;
 
-use Lib\Exception\Do_Exception;
+use Lib\Exception\Dto_Exception;
 
 class Argchecker
 {
@@ -66,7 +66,7 @@ class Argchecker
      * @param $must_correct
      * @param $default
      * @return mixed
-     * @throws Do_Exception
+     * @throws Dto_Exception
      */
     private static function run_checker($argchecker_type, $data, $rule, $is_needed, $must_correct, $default)
     {
@@ -87,12 +87,12 @@ class Argchecker
      * @param $is_needed
      * @param $default
      * @return bool|null
-     * @throws Do_Exception
+     * @throws Dto_Exception
      */
     private static function get_value($data, $is_needed, $default)
     {
         if (!in_array($is_needed, array(self::NEED_NO_DEFAULT, self::NEED_USE_DEFAULT, self::NEED_MUST))) {
-            throw new Do_Exception('argchecker NEED option param error');
+            throw new Dto_Exception('argchecker NEED option param error');
         }
         if ($data === null) {
             //参数不存在也不需要使用默认值
@@ -105,7 +105,7 @@ class Argchecker
             }
             //必须存在
             if ($is_needed == self::NEED_MUST) {
-                throw new Do_Exception('this field is a must field');
+                throw new Dto_Exception('this field is a must field');
             }
         }
         return true;
@@ -116,7 +116,7 @@ class Argchecker
      * @param $argchecker_type
      * @param $rule
      * @return array
-     * @throws Do_Exception
+     * @throws Dto_Exception
      */
     private static function check_rules($argchecker_type, $rule)
     {
@@ -131,7 +131,7 @@ class Argchecker
                 $per_rule_arr = explode(',', $per_rule_str);
                 $rule_name = array_shift($per_rule_arr);
                 if (!method_exists($argchecker_type, $rule_name)) {
-                    throw new Do_Exception('method ' . $rule_name . ' doesn\'t exist in ' . $argchecker_type);
+                    throw new Dto_Exception('method ' . $rule_name . ' doesn\'t exist in ' . $argchecker_type);
                 } else {
                     $check_rules[] = array('method' => $rule_name, 'param' => $per_rule_arr);
                 }
@@ -148,12 +148,12 @@ class Argchecker
      * @param $must_correct
      * @param $default
      * @return null
-     * @throws Do_Exception
+     * @throws Dto_Exception
      */
     private static function check($argchecker_type, $check_rules, $data, $must_correct, $default)
     {
         if (!in_array($must_correct, array(self::WRONG_NO_DEFAULT, self::WRONG_USE_DEFAULT, self::RIGHT))) {
-            throw new Do_Exception('argchecker WRONG option param error');
+            throw new Dto_Exception('argchecker WRONG option param error');
         }
         foreach ($check_rules as $rule) {
             array_unshift($rule['param'], $data); //把数据放到数组最前列
@@ -166,7 +166,7 @@ class Argchecker
                     return $default;
                 }
                 if ($must_correct == self::NEED_MUST) {
-                    throw new Do_Exception($data . ' does not match ' . $rule['method']);
+                    throw new Dto_Exception($data . ' does not match ' . $rule['method']);
                 }
             }
         }

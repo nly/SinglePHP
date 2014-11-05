@@ -1,17 +1,17 @@
 <?php
 /**
  * Created by PhpStorm
- * @desc: 数据对象模型封装
- * @package: do_abstract.php
+ * @desc: 数据传输对象模型封装
+ * @package: dto_abstract.php
  * @author: leandre <nly92@foxmail.com>
  * @copyright: copyright(2014) leandre.cn
  * @version: 14/10/30
  */
-namespace DataObject;
+namespace DTO;
 
-use Lib\Exception\Do_Exception;
+use Lib\Exception\Dto_Exception;
 
-abstract class Do_Abstract extends \ArrayObject
+abstract class Dto_Abstract extends \ArrayObject
 {
     /**
      * 字段信息
@@ -36,7 +36,7 @@ abstract class Do_Abstract extends \ArrayObject
     public function __construct($init_data = NULL, $mode = self::MODE_INPUT)
     {
         parent::setFlags(\ArrayObject::ARRAY_AS_PROPS);
-        $this->set_dataobject_mode($mode);
+        $this->set_dto_mode($mode);
         if (!is_null($init_data)) {
             $this->init_data($init_data);
         }
@@ -46,7 +46,7 @@ abstract class Do_Abstract extends \ArrayObject
     /**
      * 初始化数据
      * @param $data
-     * @throws Do_Exception
+     * @throws Dto_Exception
      */
     protected function init_data($data)
     {
@@ -55,20 +55,19 @@ abstract class Do_Abstract extends \ArrayObject
                 $this->offsetSet($key, $value);
             }
         } else {
-            throw new Do_Exception('data must be an object or array');
+            throw new Dto_Exception('data must be an object or array');
         }
     }
 
     /**
      * 设置数据对象模式
      * @param $mode
-     * @throws Do_Exception
+     * @throws Dto_Exception
      */
-    public function set_dataobject_mode($mode)
+    public function set_dto_mode($mode)
     {
         if ($mode != self::MODE_INPUT && $mode != self::MODE_OUTPUT) {
-            echo 1;
-            throw new Do_Exception('mode error');
+            throw new Dto_Exception('mode error');
         }
         $this->mode = $mode;
     }
@@ -77,7 +76,7 @@ abstract class Do_Abstract extends \ArrayObject
      * 获取数据对象模式
      * @return mixed
      */
-    public function get_dataobject_mode()
+    public function get_dto_mode()
     {
         return $this->mode;
     }
@@ -88,12 +87,12 @@ abstract class Do_Abstract extends \ArrayObject
      * 对于定义了set_*方法的项，直接返回set_*方法的结果
      * @param mixed $field_name
      * @param mixed $value
-     * @throws Do_Exception
+     * @throws Dto_Exception
      */
     public function offsetSet($field_name, $value)
     {
         if (!isset($this->fields[$field_name])) {
-            throw new Do_Exception('field ' . $field_name . ' does not exists');
+            throw new Dto_Exception('field ' . $field_name . ' does not exists');
         }
         $method = 'set_' . $field_name;
         if (method_exists($this, $method)) {
@@ -110,7 +109,7 @@ abstract class Do_Abstract extends \ArrayObject
      * 对于定义了得想，认为是必须设置项，在input模式下，未被初始化则抛出异常
      * @param mixed $field_name
      * @return mixed|null
-     * @throws Do_Exception
+     * @throws Dto_Exception
      */
     public function offsetGet($field_name)
     {
@@ -125,7 +124,7 @@ abstract class Do_Abstract extends \ArrayObject
                 if ($this->mode == self::MODE_OUTPUT) {
                     return null;
                 } else {
-                    throw new Do_Exception('fields ' . $field_name . ' does not set');
+                    throw new Dto_Exception('fields ' . $field_name . ' does not set');
                 }
             }
             return parent::offsetExists($field_name) ? parent::offsetGet($field_name) : null;
@@ -151,7 +150,7 @@ abstract class Do_Abstract extends \ArrayObject
         } elseif ($this->fields[$field_name]) {
             $class = $this->fields[$field_name];
             if (!class_exists($class)) {
-                throw new Do_Exception('field ' . $field_name . ' class ' . $class . 'not exists');
+                throw new Dto_Exception('field ' . $field_name . ' class ' . $class . 'not exists');
             }
             if (!is_object($value) || get_class($value) !== $class) {
                 $valid_value = new $class($valid_value, $this->mode);
@@ -202,7 +201,7 @@ abstract class Do_Abstract extends \ArrayObject
      * 获取
      * @param $field_name
      * @return mixed|null
-     * @throws Do_Exception
+     * @throws Dto_Exception
      */
     public function _get($field_name)
     {
@@ -213,7 +212,7 @@ abstract class Do_Abstract extends \ArrayObject
      * 设置
      * @param $field_name
      * @param $value
-     * @throws Do_Exception
+     * @throws Dto_Exception
      */
     public function _set($field_name, $value)
     {

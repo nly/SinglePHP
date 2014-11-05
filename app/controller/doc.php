@@ -1,7 +1,7 @@
 <?php
 namespace Controller;
 
-use DataObject\User;
+use DTO\User;
 use Lib\Exception\Controller_Exception;
 
 class Doc extends Base
