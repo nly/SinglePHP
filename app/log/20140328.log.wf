@@ -1,0 +1,1320 @@
+[ 2014-03-28 15:44:59 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/PhpStorm-801dd38e-6fcb-492b-b03d-bb0bded90f32.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/PhpStorm-801dd38e-6fcb-492b-b03d-bb0bded90f32.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 166,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/PhpStorm-801dd38e-6fcb-492b-b03d-bb0bded90f32.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_PhpStorm-801dd38e-6fcb-492b-b03d-bb0bded90f32.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_PhpStorm-801dd38e-6fcb-492b-b03d-bb0bded90f32.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 150,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_PhpStorm-801dd38e-6fcb-492b-b03d-bb0bded90f32.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'PhpStorm-801dd38e-6fcb-492b-b03d-bb0bded90f32.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 15:44:59 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/PhpStorm-801dd38e-6fcb-492b-b03d-bb0bded90f32.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/PhpStorm-801dd38e-6fcb-492b-b03d-bb0bded90f32.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 166,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/PhpStorm-801dd38e-6fcb-492b-b03d-bb0bded90f32.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_PhpStorm-801dd38e-6fcb-492b-b03d-bb0bded90f32.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_PhpStorm-801dd38e-6fcb-492b-b03d-bb0bded90f32.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 150,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_PhpStorm-801dd38e-6fcb-492b-b03d-bb0bded90f32.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'PhpStorm-801dd38e-6fcb-492b-b03d-bb0bded90f32.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:40:13 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:40:26 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:44:29 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:44:30 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:45:11 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:45:11 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:46:03 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:46:03 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:46:48 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:46:48 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:54:05 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:54:05 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:55:24 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:55:24 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:55:41 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:55:41 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:56:14 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-03-28 16:56:14 ][FATAL]Invalid path:  "D:\wamp\htdocs\SinglePHP\app/Controller/htdocs/index.php.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 80,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 169,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => 'D:\\wamp\\htdocs\\SinglePHP\\app/Controller/htdocs/index.php.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\SinglePHP.class.php',
+    'line' => 153,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_htdocs_index.php',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => 'D:\\wamp\\htdocs\\SinglePHP\\htdocs\\index.php',
+    'line' => 8,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => 'index.php',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)

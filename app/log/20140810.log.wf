@@ -1,0 +1,557 @@
+[ 2014-08-10 09:28:19 ][FATAL] debug_backtrace:array (
+  0 => 
+  array (
+    'function' => 'halt',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-08-10 09:29:41 ][FATAL]Error:  debug_backtrace:array (
+  0 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 73,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Error: ',
+      1 => true,
+    ),
+  ),
+  1 => 
+  array (
+    'function' => 'shutdown',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-08-10 16:37:58 ][FATAL]Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 103,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 208,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => '/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 183,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/htdocs/index.php',
+    'line' => 12,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => '',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-08-10 16:38:03 ][FATAL]Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 103,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 208,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => '/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 183,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/htdocs/index.php',
+    'line' => 12,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => '',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-08-10 16:38:05 ][FATAL]Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 103,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 208,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => '/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 183,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/htdocs/index.php',
+    'line' => 12,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => '',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-08-10 16:38:07 ][FATAL]Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 103,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 208,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => '/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 183,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/htdocs/index.php',
+    'line' => 12,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => '',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-08-10 16:38:09 ][FATAL]Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 103,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 208,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => '/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 183,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/htdocs/index.php',
+    'line' => 12,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => '',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-08-10 16:38:11 ][FATAL]Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 103,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 208,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => '/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 183,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/htdocs/index.php',
+    'line' => 12,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => '',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-08-10 16:38:49 ][FATAL]Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php" debug_backtrace:array (
+  0 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 103,
+    'function' => 'halt',
+    'args' => 
+    array (
+      0 => 'Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php"',
+    ),
+  ),
+  1 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 208,
+    'function' => 'includeIfExist',
+    'args' => 
+    array (
+      0 => '/Users/leandre/Desktop/work/www/SinglePHP/app/controller/.php',
+    ),
+  ),
+  2 => 
+  array (
+    'function' => 'autoload',
+    'class' => 'SinglePHP',
+    'type' => '::',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  3 => 
+  array (
+    'function' => 'spl_autoload_call',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  4 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/SinglePHP.class.php',
+    'line' => 183,
+    'function' => 'class_exists',
+    'args' => 
+    array (
+      0 => 'Controller_',
+    ),
+  ),
+  5 => 
+  array (
+    'file' => '/Users/leandre/Desktop/work/www/SinglePHP/htdocs/index.php',
+    'line' => 12,
+    'function' => 'run',
+    'class' => 'SinglePHP',
+    'object' => 
+    SinglePHP::__set_state(array(
+       'c' => '',
+       'a' => NULL,
+    )),
+    'type' => '->',
+    'args' => 
+    array (
+    ),
+  ),
+)
+[ 2014-08-10 16:50:03 ]  [FATAL]  Call to undefined method Controller_Index::ecf()
+[ 2014-08-10 16:51:56 ]  [FATAL]  Call to undefined method Controller_Index::ecf() in /Users/leandre/Desktop/work/www/SinglePHP/app/controller/index.php at 4
+[ 2014-08-10 16:55:43 ]  [FATAL]  Call to undefined method Controller_Index::ecf() in /Users/leandre/Desktop/work/www/SinglePHP/app/controller/index.php at 4
+[ 2014-08-10 16:55:45 ]  [FATAL]  Call to undefined method Controller_Index::ecf() in /Users/leandre/Desktop/work/www/SinglePHP/app/controller/index.php at 4
+[ 2014-08-10 16:56:00 ]  [FATAL]  Call to undefined method Controller_Index::ecf() in /Users/leandre/Desktop/work/www/SinglePHP/app/controller/index.php at 4
+[ 2014-08-10 16:56:06 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 16:56:10 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 16:56:13 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 16:56:41 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 16:56:45 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/last.php"
+[ 2014-08-10 16:56:55 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 16:57:13 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 16:57:45 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 16:57:49 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 16:58:15 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 16:58:16 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 16:58:44 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 16:58:45 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 16:58:47 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 16:58:49 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 16:59:17 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 16:59:31 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 17:00:15 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 17:00:18 ]  [FATAL]  Invalid path:  "/Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php"
+[ 2014-08-10 17:00:48 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:00:50 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:00:51 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:00:53 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:00:54 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:00:56 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:00:58 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:02:22 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:02:35 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:02:39 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:02:42 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:02:44 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:02:48 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:02:50 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:02:51 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:02:53 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:02:55 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:02:57 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:02:59 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:03:02 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:03:11 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:03:13 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:03:15 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:03:18 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/good.php
+[ 2014-08-10 17:03:21 ]  [FATAL]  Call to undefined method Controller_Index::ecf() in /Users/leandre/Desktop/work/www/SinglePHP/app/controller/index.php at 4
+[ 2014-08-10 17:03:24 ]  [FATAL]  Call to undefined method Controller_Index::ecf() in /Users/leandre/Desktop/work/www/SinglePHP/app/controller/index.php at 4
+[ 2014-08-10 17:03:26 ]  [FATAL]  Call to undefined method Controller_Index::ecf() in /Users/leandre/Desktop/work/www/SinglePHP/app/controller/index.php at 4
+[ 2014-08-10 17:04:12 ]  [FATAL]  Call to undefined method Controller_Index::ecf() in /Users/leandre/Desktop/work/www/SinglePHP/app/controller/index.php at 4
+[ 2014-08-10 17:04:14 ]  [FATAL]  Call to undefined method Controller_Index::ecf() in /Users/leandre/Desktop/work/www/SinglePHP/app/controller/index.php at 4
+[ 2014-08-10 17:04:18 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/aaa.php
+[ 2014-08-10 17:04:22 ]  [FATAL]  Call to undefined method Controller_Index::ecf() in /Users/leandre/Desktop/work/www/SinglePHP/app/controller/index.php at 4
+[ 2014-08-10 17:04:42 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/aaa.php
+[ 2014-08-10 17:05:55 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/aaa.php
+[ 2014-08-10 17:05:57 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/aaa.php
+[ 2014-08-10 17:06:16 ]  [FATAL]  Call to undefined method Controller_Index::ecf() in /Users/leandre/Desktop/work/www/SinglePHP/app/controller/index.php at 4
+[ 2014-08-10 17:06:21 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/kjhcsdkjhskd.php
+[ 2014-08-10 17:07:06 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/start/index.php
+[ 2014-08-10 17:08:16 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/start/index.php
+[ 2014-08-10 17:08:23 ]  [FATAL]  Call to undefined method Controller_Index::ecf() in /Users/leandre/Desktop/work/www/SinglePHP/app/controller/index.php at 4
+[ 2014-08-10 17:08:30 ]  [FATAL]  Call to undefined method Controller_Index::ecf() in /Users/leandre/Desktop/work/www/SinglePHP/app/controller/index.php at 4
+[ 2014-08-10 17:08:32 ]  [FATAL]  Call to undefined method Controller_Index::ecf() in /Users/leandre/Desktop/work/www/SinglePHP/app/controller/index.php at 4
+[ 2014-08-10 17:23:41 ]  [FATAL]  Invalid path:  /Users/leandre/Desktop/work/www/SinglePHP/app/controller/asdas.php
