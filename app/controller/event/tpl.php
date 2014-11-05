@@ -1,7 +1,11 @@
 <?php
-
-class Controller_Event_Tpl extends Controller {
-    public function _run() {
-        $this->display();
+namespace Controller\Event
+{
+    class Tpl extends \Single\Controller
+    {
+        public function _run()
+        {
+            $this->display();
+        }
     }
 }

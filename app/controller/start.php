@@ -1,6 +1,11 @@
 <?php
-class Controller_Start extends Controller_Base {
-    public function _run(){
+namespace Controller;
+
+class Start extends Base
+{
+    public function _run()
+    {
         $this->display('start');
     }
 }
+

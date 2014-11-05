@@ -1,11 +1,17 @@
 <?php
-class Controller_Index extends Controller_Base {
-    public function _run(){
-        //echo testFunction();
-        //new Dw_Event();
-        //echo "<br />";
-        //Dw_Event::add();
+namespace Controller;
+
+class Index extends Base
+{
+    public function _run()
+    {
+        echo "hello world";
+        echo testFunction();
+        new \Dw\Event();
+        echo "<br />";
+        \Dw\Event::add();
         $this->display();
-        //$tihs->display('index');
+        //$this->display('index');
     }
 }
+

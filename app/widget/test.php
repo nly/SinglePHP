@@ -1,6 +1,6 @@
 <?php
-
-class Widget_Test extends Widget{
+namespace Widget;
+class Test extends \Single\Widget{
     public function invoke($data) {
         echo "Widget_Test";
         $this->assign('data', $data);
