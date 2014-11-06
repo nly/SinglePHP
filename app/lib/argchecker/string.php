@@ -106,4 +106,43 @@ class String
         return preg_match($reg_exp, $data);
     }
 
+    /**
+     * 验证email
+     * @param $email
+     * @return bool
+     */
+    public static function email($email)
+    {
+        $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+        return ($email) ? true : false;
+    }
+
+    /**
+     * 验证url
+     * @param $url
+     * @return bool
+     */
+    public static function url($url)
+    {
+        $reg = "/^(http:\/\/|https:\/\/|ftp:\/\/){2,}/is";
+        $matches = array();
+        preg_match($reg, $url, $matches);
+        if (!empty($matches)) {
+            return false;
+        }
+        $url = filter_var($url, FILTER_VALIDATE_URL);
+        return ($url) ? true : false;
+    }
+
+    /**
+     * 验证ip
+     * @param $ip
+     * @return bool
+     */
+    public static function ip($ip)
+    {
+        $ip = filter_var($ip, FILTER_VALIDATE_IP);
+        return ($ip) ? true : false;
+    }
+
 }

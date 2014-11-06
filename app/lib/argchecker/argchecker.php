@@ -37,24 +37,46 @@ class Argchecker
         return self::run_checker('int', $data, $rule, $is_needed, $must_correct, $default);
     }
 
+    /**
+     * 字符串类型校验
+     * @param $data
+     * @param $rule
+     * @param int $is_needed
+     * @param int $must_correct
+     * @param null $default
+     * @return mixed
+     */
     public static function string($data, $rule, $is_needed = 1, $must_correct = 1, $default = null)
     {
         return self::run_checker('string', $data, $rule, $is_needed, $must_correct, $default);
     }
 
+    /**
+     * 浮点数类型校验
+     * @param $data
+     * @param $rule
+     * @param int $is_needed
+     * @param int $must_correct
+     * @param null $default
+     * @return mixed
+     */
     public static function float($data, $rule, $is_needed = 1, $must_correct = 1, $default = null)
     {
-
+        return self::run_checker('float', $data, $rule, $is_needed, $must_correct, $default);
     }
 
+    /**
+     * 枚举类型校验
+     * @param $data
+     * @param $rule
+     * @param int $is_needed
+     * @param int $must_correct
+     * @param null $default
+     * @return mixed
+     */
     public static function enum($data, $rule, $is_needed = 1, $must_correct = 1, $default = null)
     {
-
-    }
-
-    public static function arr($data, $rule, $is_needed = 1, $must_correct = 1, $default = null)
-    {
-
+        return self::run_checker('emum', $data, $rule, $is_needed, $must_correct, $default);
     }
 
     /**

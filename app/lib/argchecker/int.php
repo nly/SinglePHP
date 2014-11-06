@@ -42,4 +42,14 @@ class Int
     {
         return $data < $max;
     }
+
+    /**
+     * 手机号验证
+     * @param $data
+     * @return int
+     */
+    public static function phone($data)
+    {
+        return preg_match("/^1\d{10}$/", $data);
+    }
 }
