@@ -76,7 +76,7 @@ class Argchecker
      */
     public static function enum($data, $rule, $is_needed = 1, $must_correct = 1, $default = null)
     {
-        return self::run_checker('emum', $data, $rule, $is_needed, $must_correct, $default);
+        return self::run_checker('enum', $data, $rule, $is_needed, $must_correct, $default);
     }
 
     /**
