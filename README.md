@@ -43,7 +43,7 @@ SinglePHP
 		   |---app---|
 		             |---config     配置文件夹
 		             |---controller 控制器文件夹
-		             |---dataobject 数据对象
+		             |---dts        数据传输对象
 		             |---dw         数据写入
 		             |---dr         数据读取
 		             |---lib        类库
@@ -52,6 +52,8 @@ SinglePHP
 		             |---widget     widget
 		             |---tool       工具
 		             |---common.php 通用函数库
+		             
+		   |---logs-- 日志目录 .wf为错误日志，.log为普通日志
 
 3. 访问路径
 

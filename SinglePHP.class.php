@@ -137,8 +137,7 @@ class SinglePHP
             if (C('USE_SESSION') == true) {
                 session_start();
             }
-            C('APP_FULL_PATH', realpath(getcwd() . DS . C('APP_PATH')));
-            require(C('APP_FULL_PATH') . DS . 'common.php');
+            require(C('APP_PATH') . DS . 'common.php');
             spl_autoload_register(array('\Single\SinglePHP', 'autoload'));
             $uri = parse_url($_SERVER['REQUEST_URI']);
             $pathInfo = $uri['path'];
@@ -185,7 +184,7 @@ class SinglePHP
     public static function autoload($class)
     {
         $classFile = strtolower(str_replace('\\', DS, $class));
-        $file = C('APP_FULL_PATH') . DS . $classFile . '.php';
+        $file = C('APP_PATH') . DS . $classFile . '.php';
         require($file);
 
     }
@@ -304,7 +303,7 @@ class View
     public function __construct($tplDir = '')
     {
         if ($tplDir == '') {
-            $this->_tplDir = C('APP_FULL_PATH') . DS . 'tpl' . DS;
+            $this->_tplDir = C('APP_PATH') . DS . 'tpl' . DS;
         } else {
             $this->_tplDir = $tplDir;
         }
@@ -344,7 +343,7 @@ class View
      */
     public static function tplInclude($path, $data = array())
     {
-        self::$tmpData = array('path' => C('APP_FULL_PATH') . DS . 'tpl' . DS . $path . '.html', 'data' => $data,);
+        self::$tmpData = array('path' => C('APP_PATH') . DS . 'tpl' . DS . $path . '.html', 'data' => $data,);
         unset($path);
         unset($data);
         extract(self::$tmpData['data']);
@@ -377,7 +376,7 @@ class Widget
     public function __construct()
     {
         $this->_widgetName = get_class($this);
-        $dir = C('APP_FULL_PATH') . DS . 'tpl' . DS . 'widget' . DS;
+        $dir = C('APP_PATH') . DS . 'tpl' . DS . 'widget' . DS;
         $this->_view = new View($dir);
     }
 
@@ -417,8 +416,8 @@ class Widget
 /**
  * 日志类
  * 使用方法：Log::fatal('error msg');
- * 保存路径为 app/log，按天存放
- * fatal和warning会记录在.log.wf文件中
+ * 保存路径为 app/logs，按天存放
+ * fatal和warning会记录在.logs.wf文件中
  */
 class Log
 {
@@ -430,8 +429,8 @@ class Log
      */
     public static function write($msg, $level = 'DEBUG', $wf = false)
     {
-        $msg = date('[ Y-m-d H:i:s ]') . "  [{$level}]  " . $msg . "\r\n";
-        $logPath = C('APP_FULL_PATH') . DS . 'log' . DS . date('Ymd') . '.log';
+        $msg = date('[Y-m-d H:i:s]') . " [{$level}] " . $msg . "\r\n";
+        $logPath = C('LOG_PATH') . DS . date('Ymd') . '.log';
         if ($wf) {
             $logPath .= '.wf';
         }
