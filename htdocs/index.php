@@ -10,10 +10,11 @@
 header("Content-Type:text/html; charset=utf-8");
 //error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 define('DS', DIRECTORY_SEPARATOR);
+define('ROOT_PATH', dirname(dirname(__FILE__)));
 require '../SinglePHP.class.php';
 $config = array(
-    'APP_PATH' => dirname(dirname(__FILE__)) . DS . 'app',
-    'LOG_PATH' => dirname(dirname(__FILE__)) . DS . 'logs',
+    'APP_PATH' => ROOT_PATH . DS . 'app',
+    'LOG_PATH' => ROOT_PATH . DS . 'logs',
     'USE_SESSION' => true, //开启SESSION会话
     'SHOW_LOAD_TIME' => true, //显示执行耗时
     'OUTPUT_ENCODE' => true, //压缩模板代码
