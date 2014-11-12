@@ -185,6 +185,9 @@ class SinglePHP
     {
         $classFile = strtolower(str_replace('\\', DS, $class));
         $file = C('APP_PATH') . DS . $classFile . '.php';
+        if (!file_exists($classFile)) {
+            throw new \Exception('File ' . $file . 'does not exist');
+        }
         require($file);
 
     }
@@ -416,8 +419,8 @@ class Widget
 /**
  * 日志类
  * 使用方法：Log::fatal('error msg');
- * 保存路径为 app/logs，按天存放
- * fatal和warning会记录在.logs.wf文件中
+ * 保存路径为 logs，按天存放
+ * fatal和warning会记录在.log.wf文件中
  */
 class Log
 {
