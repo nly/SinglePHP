@@ -2,7 +2,7 @@
 /**
  * Created by PhpStorm
  * @desc: 数据传输对象模型封装
- * @package: dto_abstract.php
+ * @package: DTO
  * @author: leandre <nly92@foxmail.com>
  * @copyright: copyright(2014) leandre.cn
  * @version: 14/10/30

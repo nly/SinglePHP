@@ -2,7 +2,7 @@
 /**
  * Created by PhpStorm
  * @desc: SinglePHP框架
- * @package: SinglePHP.class.php
+ * @package: Single
  * @author: leandre <nly92@foxmail.com>
  * @copyright: copyright(2014) leandre.cn
  * @version: 14/10/27
@@ -185,8 +185,8 @@ class SinglePHP
     {
         $classFile = strtolower(str_replace('\\', DS, $class));
         $file = C('APP_PATH') . DS . $classFile . '.php';
-        if (!file_exists($classFile)) {
-            throw new \Exception('File ' . $file . 'does not exist');
+        if (!file_exists($file)) {
+            throw new \Exception('File ' . $file . ' does not exist');
         }
         require($file);
 

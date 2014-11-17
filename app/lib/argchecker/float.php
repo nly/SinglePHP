@@ -2,7 +2,7 @@
 /**
  * Created by PhpStorm
  * @desc: float浮点数类型校验
- * @package: float.php
+ * @package: Lib\Argchecker
  * @author: leandre <nly92@foxmail.com>
  * @copyright: copyright(2014) leandre.cn
  * @version: 14/11/5

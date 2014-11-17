@@ -16,6 +16,7 @@ class Doc extends Base
                 'age' => '22'
             );
             $do = new User($userinfo);
+            var_dump($do->get_fields());
             var_dump($do);
 //            $do->name = 'alice';
 //            var_dump($do->to_array());

@@ -2,7 +2,7 @@
 /**
  * Created by PhpStorm
  * @desc: string型校验
- * @package: string.php
+ * @package: Lib\Argchecker
  * @author: leandre <nly92@foxmail.com>
  * @copyright: copyright(2014) leandre.cn
  * @version: 14/11/5

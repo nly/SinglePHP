@@ -2,7 +2,7 @@
 /**
  * Created by PhpStorm
  * @desc: 网站入口文件
- * @package: index.php
+ * @package: index
  * @author: leandre <nly92@foxmail.com>
  * @copyright: copyright(2014) leandre.cn
  * @version: 14/10/27
@@ -17,7 +17,7 @@ $config = array(
     'LOG_PATH' => ROOT_PATH . DS . 'logs',
     'USE_SESSION' => true, //开启SESSION会话
     'SHOW_LOAD_TIME' => true, //显示执行耗时
-    'OUTPUT_ENCODE' => true, //压缩模板代码
+    'OUTPUT_ENCODE' => false, //压缩模板代码
     'DEBUG_MODE' => true, //开启调试模式
 );
 Single\SinglePHP::getInstance($config)->run();

@@ -2,7 +2,7 @@
 /**
  * Created by PhpStorm
  * @desc: 缓存接口类
- * @package: cache_interface.php
+ * @package: Lib\Cache
  * @author: leandre <nly92@foxmail.com>
  * @copyright: copyright(2014) leandre.cn
  * @version: 14/10/29
