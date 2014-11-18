@@ -154,12 +154,16 @@ class SinglePHP
             if (!class_exists($controllerClass)) {
                 throw new \Exception('Controller ' . $controllerClass . ' does not exist');
             }
-            $controller = new $controllerClass();
+            $class = new \ReflectionClass($controllerClass);
+            if ($class->isAbstract()) {
+                throw new \Exception('can not create instances of abstract controller');
+            }
+            $controller = $class->newInstance();
             if (!method_exists($controller, '_run')) {
                 throw new \Exception('Controller ' . $controllerClass . ' does not has _run() method');
             }
             $begin = microtime(TRUE);
-            call_user_func(array($controller, '_run')); // main
+            $class->getMethod('_run')->invoke($controller); // main
             $end = microtime(TRUE);
             if (C('SHOW_LOAD_TIME')) {
                 echo sprintf('<br />Time： %.4f ms', ($end - $begin) * 1000);
