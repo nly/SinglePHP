@@ -10,8 +10,9 @@
 header("Content-Type:text/html; charset=utf-8");
 //error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 define('DS', DIRECTORY_SEPARATOR);
+define('CLI', PHP_SAPI === 'cli');
 define('ROOT_PATH', dirname(dirname(__FILE__)));
-require '../SinglePHP.class.php';
+require ROOT_PATH . DS . 'Single.php';
 $config = array(
     'APP_PATH' => ROOT_PATH . DS . 'app',
     'LOG_PATH' => ROOT_PATH . DS . 'logs',

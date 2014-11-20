@@ -139,8 +139,13 @@ class SinglePHP
             }
             require(C('APP_PATH') . DS . 'common.php');
             spl_autoload_register(array('\Single\SinglePHP', 'autoload'));
-            $uri = parse_url($_SERVER['REQUEST_URI']);
-            $pathInfo = $uri['path'];
+            if (CLI) {
+                global $argv;
+                $pathInfo = isset($argv[1]) ? $argv[1] : '';
+            } else {
+                $uri = parse_url($_SERVER['REQUEST_URI']);
+                $pathInfo = $uri['path'];
+            }
             $pathInfoArr = array_filter(explode(DS, trim($pathInfo, DS)));
             $length = count($pathInfoArr);
             if ($length == 0) {
@@ -169,11 +174,13 @@ class SinglePHP
                 echo sprintf('<br />Time： %.4f ms', ($end - $begin) * 1000);
             }
         } catch (\Exception $e) {
-            if (C('DEBUG_MODE')) {
+            if (C('DEBUG_MODE') && !CLI) {
                 echo "<br /><br /><br /><font color='red'>Exception Message：" . $e->getMessage() . '</font><br />';
                 echo 'Exception File：', $e->getFile(), '<br/>';
                 echo 'Exception Line：', $e->getLine(), '<br/>';
                 echo '<pre>Exception Code：<br/>' . $e->getTraceAsString() . '</pre>';
+            } else {
+                print($e->getMessage() . "\n");
             }
             Log::fatal($e->getMessage());
             die;
