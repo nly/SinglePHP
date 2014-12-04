@@ -55,7 +55,7 @@ function C($key, $value = null)
  */
 function W($name, $data = array())
 {
-    $fullName = '\Widget\\' . $name;
+    $fullName = 'Widget\\' . $name;
     if (!class_exists($fullName)) {
         throw new \Exception('Widget ' . $name . ' not exists');
     }
@@ -224,9 +224,9 @@ class Controller
      */
     public function __construct()
     {
-        if (!$this->_view = Register::get('View')) {
+        if (!$this->_view = Register::get('Single\View')) {
             $this->_view = new View();
-            Register::set('View', $this->_view);
+            Register::set('Single\View', $this->_view);
         }
         $this->_init();
     }
@@ -397,7 +397,7 @@ class Widget
     {
         $this->_widgetName = get_class($this);
         $dir = C('APP_PATH') . DS . 'tpl' . DS . 'widget' . DS;
-        if (!$this->_view = Register::get('WidgetView')) {
+        if (!$this->_view = Register::get('Single\WidgetView')) {
             $this->_view = new View($dir);
             Register::set('WidgetView', $this->_view);
         }
@@ -526,7 +526,6 @@ class Register
      */
     public static function get($key)
     {
-        $key = md5($key);
         return isset(self::$register_global[$key]) ? self::$register_global[$key] : null;
     }
 
@@ -537,7 +536,6 @@ class Register
      */
     public static function set($key, $obj)
     {
-        $key = md5($key);
         self::$register_global[$key] = $obj;
     }
 
@@ -547,7 +545,6 @@ class Register
      */
     public static function del($key)
     {
-        $key = md5($key);
         unset(self::$register_global[$key]);
     }
 }
