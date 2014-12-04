@@ -59,7 +59,10 @@ function W($name, $data = array())
     if (!class_exists($fullName)) {
         throw new \Exception('Widget ' . $name . ' not exists');
     }
-    $widget = new $fullName();
+    if (!$widget = Register::get($fullName)) {
+        $widget = new $fullName();
+        Register::set($fullName, $widget);
+    }
     $widget->invoke($data);
 }
 
@@ -221,7 +224,10 @@ class Controller
      */
     public function __construct()
     {
-        $this->_view = new \Single\View();
+        if (!$this->_view = Register::get('View')) {
+            $this->_view = new View();
+            Register::set('View', $this->_view);
+        }
         $this->_init();
     }
 
@@ -391,7 +397,10 @@ class Widget
     {
         $this->_widgetName = get_class($this);
         $dir = C('APP_PATH') . DS . 'tpl' . DS . 'widget' . DS;
-        $this->_view = new View($dir);
+        if (!$this->_view = Register::get('WidgetView')) {
+            $this->_view = new View($dir);
+            Register::set('WidgetView', $this->_view);
+        }
     }
 
     /**
@@ -496,6 +505,51 @@ class Log
         self::write($msg, 'SQL');
     }
 
+}
+
+/**
+ * 对象注册数
+ * Class Register
+ * @package Single
+ */
+class Register
+{
+    /**
+     * @var array object tree
+     */
+    protected static $register_global = array();
+
+    /**
+     * get a object
+     * @param $key
+     * @return mixed
+     */
+    public static function get($key)
+    {
+        $key = md5($key);
+        return isset(self::$register_global[$key]) ? self::$register_global[$key] : null;
+    }
+
+    /**
+     * set a object
+     * @param $key
+     * @param $obj
+     */
+    public static function set($key, $obj)
+    {
+        $key = md5($key);
+        self::$register_global[$key] = $obj;
+    }
+
+    /**
+     * delete a object
+     * @param $key
+     */
+    public static function del($key)
+    {
+        $key = md5($key);
+        unset(self::$register_global[$key]);
+    }
 }
 
 /**

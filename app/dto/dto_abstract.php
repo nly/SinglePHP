@@ -10,6 +10,7 @@
 namespace DTO;
 
 use Lib\Exception\Dto_Exception;
+use Single\Register;
 
 abstract class Dto_Abstract extends \ArrayObject
 {
@@ -153,7 +154,10 @@ abstract class Dto_Abstract extends \ArrayObject
                 throw new Dto_Exception('field ' . $field_name . ' class ' . $class . 'not exists');
             }
             if (!is_object($value) || get_class($value) !== $class) {
-                $valid_value = new $class($valid_value, $this->mode);
+                if (!$valid_value = Register::get($class)) {
+                    $valid_value = new $class($valid_value, $this->mode);
+                    Register::set($class, $valid_value);
+                }
             }
         }
         return $valid_value;

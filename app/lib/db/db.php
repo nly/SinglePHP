@@ -9,6 +9,7 @@
  */
 namespace Lib\Db;
 
+use Single\Register;
 use Single\SingleException;
 
 class Db
@@ -68,7 +69,10 @@ class Db
         $instance = array();
         $guid = to_guid_string($db_config);
         if (!isset($instance[$guid])) {
-            $obj = new Db();
+            if (!$obj = Register::get(__CLASS__)) {
+                $obj = new Db();
+                Register::set(__CLASS__, $obj);
+            }
             $instance[$guid] = $obj->factory($db_config);
         }
         return $instance[$guid];
@@ -88,7 +92,10 @@ class Db
         if (!class_exists($class)) {
             throw new SingleException($class . ' is not defined');
         }
-        $db = new $class($db_config);
+        if (!$db = Register::get($class)) { //从对象注册树获取
+            $db = new $class($db_config);
+            Register::set($class, $db); //写入对象注册树
+        }
         return $db;
     }
 
@@ -304,7 +311,7 @@ class Db
                 } else {
                     // 查询字段的安全过滤
                     if (!preg_match('/^[A-Z_\|\&\-.a-z0-9\(\)\,]+$/', trim($key))) {
-                        new SingleException('EXPRESS ERROR : ' . $key);
+                        throw new SingleException('EXPRESS ERROR : ' . $key);
                     }
                     // 多条件支持
                     $multi = is_array($val) && isset($val['_multi']);

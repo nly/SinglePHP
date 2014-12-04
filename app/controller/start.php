@@ -19,9 +19,10 @@ class Start extends Base
          * var_dump($add);
          */
 
-        /*
+
         $list = \Dr\User::getUserList();
         var_dump($list);
+        /*
         $namelist = \Dr\User::getUserName();
         var_dump($namelist);
         $nameagelist = \Dr\User::getUserNameAge();
