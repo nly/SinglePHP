@@ -154,10 +154,7 @@ abstract class Dto_Abstract extends \ArrayObject
                 throw new Dto_Exception('field ' . $field_name . ' class ' . $class . 'not exists');
             }
             if (!is_object($value) || get_class($value) !== $class) {
-                if (!$valid_value = Register::get($class)) {
-                    $valid_value = new $class($valid_value, $this->mode);
-                    Register::set($class, $valid_value);
-                }
+                $valid_value = Register::get($class, array($this->mode));
             }
         }
         return $valid_value;

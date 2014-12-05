@@ -21,7 +21,7 @@ class Start extends Base
 
 
         $list = \Dr\User::getUserList();
-        //var_dump($list);
+        var_dump($list);
         /*
         $namelist = \Dr\User::getUserName();
         var_dump($namelist);

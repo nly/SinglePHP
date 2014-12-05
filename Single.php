@@ -11,13 +11,15 @@
 namespace Single;
 register_shutdown_function('Single\shutdown');
 date_default_timezone_set('Asia/Shanghai');
+
 /**
  * 获取和设置配置参数 支持批量定义
  * 如果$key是关联型数组，则会按K-V的形式写入配置
  * 如果$key是数字索引数组，则返回对应的配置数组
- * @param string|array $key 配置变量
- * @param array|null $value 配置值
- * @return array|null
+ * @param $key 配置变量
+ * @param null $value 配置值
+ * @return array|bool|null
+ * @throws \Exception
  */
 function C($key, $value = null)
 {
@@ -49,9 +51,9 @@ function C($key, $value = null)
 
 /**
  * 调用Widget
- * @param string $name widget名
+ * @param $name widget名
  * @param array $data 传递给widget的变量列表，key为变量名，value为变量值
- * @return void
+ * @throws \Exception
  */
 function W($name, $data = array())
 {
@@ -59,10 +61,7 @@ function W($name, $data = array())
     if (!class_exists($fullName)) {
         throw new \Exception('Widget ' . $name . ' not exists');
     }
-    if (!$widget = Register::get($fullName)) {
-        $widget = new $fullName();
-        Register::set($fullName, $widget);
-    }
+    $widget = Register::get($fullName);
     $widget->invoke($data);
 }
 
@@ -193,7 +192,8 @@ class SinglePHP
 
     /**
      * 自动加载函数
-     * @param string $class 类名
+     * @param $class 类名
+     * @throws \Exception
      */
     public static function autoload($class)
     {
@@ -224,10 +224,7 @@ class Controller
      */
     public function __construct()
     {
-        if (!$this->_view = Register::get('Single\View')) {
-            $this->_view = new View();
-            Register::set('Single\View', $this->_view);
-        }
+        $this->_view = Register::get('Single\View');
         $this->_init();
     }
 
@@ -397,10 +394,7 @@ class Widget
     {
         $this->_widgetName = get_class($this);
         $dir = C('APP_PATH') . DS . 'tpl' . DS . 'widget' . DS;
-        if (!$this->_view = Register::get('Single\WidgetView')) {
-            $this->_view = new View($dir);
-            Register::set('WidgetView', $this->_view);
-        }
+        $this->_view = $this->_view = Register::get('Single\View', array($dir));
     }
 
     /**
@@ -520,32 +514,43 @@ class Register
     protected static $register_global = array();
 
     /**
-     * get a object
+     * get or set an object
      * @param $key
+     * @param array $args
      * @return mixed
+     * @throws \SingleException
      */
-    public static function get($key)
+    public static function get($key, array $args = array())
     {
-        return isset(self::$register_global[$key]) ? self::$register_global[$key] : null;
+        $key = trim($key, '\\');
+        $unique_key = $key . json_encode($args);
+        if (!isset(self::$register_global[$unique_key])) {
+            $class = new \ReflectionClass($key);
+            if ($class->isAbstract()) {
+                throw new \SingleException("class {$key} can not be abstruct");
+            }
+            self::$register_global[$unique_key] = $class->newInstanceArgs($args);
+
+        }
+        return self::$register_global[$unique_key];;
     }
 
     /**
-     * set a object
-     * @param $key
-     * @param $obj
-     */
-    public static function set($key, $obj)
-    {
-        self::$register_global[$key] = $obj;
-    }
-
-    /**
-     * delete a object
+     * delete an object
      * @param $key
      */
     public static function del($key)
     {
         unset(self::$register_global[$key]);
+    }
+
+    /**
+     * count all objects
+     * @return int
+     */
+    public static function count()
+    {
+        return count(self::$register_global);
     }
 }
 

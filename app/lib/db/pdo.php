@@ -43,10 +43,7 @@ final class Pdo extends Db
                 $this->config['params'][\PDO::ATTR_PERSISTENT] = true;
             }
             try {
-                if (!$this->link = Register::get('PDO')) {
-                    $this->link = new \PDO($this->config['dsn'], $this->config['username'], $this->config['password'], $this->config['params']);
-                    Register::set('PDO', $this->link);
-                }
+                $this->link = Register::get('PDO', array($this->config['dsn'], $this->config['username'], $this->config['password'], $this->config['params']));
             } catch (\PDOException $e) {
                 LOG::fatal('Can\'t connect to DB : ' . $e->getMessage());
             }

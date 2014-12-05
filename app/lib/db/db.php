@@ -69,10 +69,7 @@ class Db
         $instance = array();
         $guid = to_guid_string($db_config);
         if (!isset($instance[$guid])) {
-            if (!$obj = Register::get(__CLASS__)) {
-                $obj = new Db();
-                Register::set(__CLASS__, $obj);
-            }
+            $obj = Register::get(__CLASS__);
             $instance[$guid] = $obj->factory($db_config);
         }
         return $instance[$guid];
@@ -92,10 +89,7 @@ class Db
         if (!class_exists($class)) {
             throw new SingleException($class . ' is not defined');
         }
-        if (!$db = Register::get($class)) { //从对象注册树获取
-            $db = new $class($db_config);
-            Register::set($class, $db); //写入对象注册树
-        }
+        $db = Register::get($class, array($db_config));
         return $db;
     }
 
