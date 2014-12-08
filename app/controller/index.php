@@ -3,7 +3,7 @@ namespace Controller;
 
 class Index extends Base
 {
-    public function _run()
+    public function run()
     {
         echo "hello world";
         \Single\W('test');

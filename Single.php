@@ -166,11 +166,11 @@ class SinglePHP
                 throw new \Exception('can not create instances of abstract controller');
             }
             $controller = $class->newInstance();
-            if (!method_exists($controller, '_run')) {
-                throw new \Exception('Controller ' . $controllerClass . ' does not has _run() method');
+            if (!method_exists($controller, 'run')) {
+                throw new \Exception('Controller ' . $controllerClass . ' does not has run() method');
             }
             $begin = microtime(TRUE);
-            $class->getMethod('_run')->invoke($controller); // main
+            $class->getMethod('run')->invoke($controller); // main
             $end = microtime(TRUE);
             if (C('SHOW_LOAD_TIME')) {
                 echo sprintf('<br />Time： %.4f ms', ($end - $begin) * 1000);

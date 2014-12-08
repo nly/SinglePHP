@@ -3,7 +3,7 @@ namespace Controller\Event
 {
     class Prize  extends \Controller\Base implements \Controller\Inter\Test
     {
-        public function _run()
+        public function run()
         {
             $this->add();
             $this->del();

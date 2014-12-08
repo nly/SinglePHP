@@ -6,7 +6,7 @@ use Lib\Exception\Controller_Exception;
 
 class Doc extends Base
 {
-    public function _run()
+    public function run()
     {
         try {
             $userinfo = array(

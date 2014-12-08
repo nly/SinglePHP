@@ -5,7 +5,7 @@ use DTO\User;
 
 class Start extends Base
 {
-    public function _run()
+    public function run()
     {
         /**
          * $data = array(

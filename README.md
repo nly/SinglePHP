@@ -58,14 +58,14 @@ SinglePHP
 3. 访问路径
 
 		f.e:
-		single.dev.com                      --->    app/controller/index.php ->  _run()
-		single.dev.com/index                --->    app/controller/index.php ->  _run()
-		single.dev.com/index?id=123         --->    app/controller/index.php ->  _run() 
-		single.dev.com/start                --->    app/controller/start.php ->  _run()
-		single.dev.com/doc                  --->    app/controller/doc.php   ->  _run()
-		single.dev.com/event/prize          --->    app/controller/event/prize.php ->  _run()
+		single.dev.com                      --->    app/controller/index.php ->  run()
+		single.dev.com/index                --->    app/controller/index.php ->  run()
+		single.dev.com/index?id=123         --->    app/controller/index.php ->  run()
+		single.dev.com/start                --->    app/controller/start.php ->  run()
+		single.dev.com/doc                  --->    app/controller/doc.php   ->  run()
+		single.dev.com/event/prize          --->    app/controller/event/prize.php ->  run()
 		single.dev.com/event/mobile/index   --->    app/controller/event/mobile/index.php
-		 ->  _run()
+		 ->  run()
         
 4. 如何使用类？
 
@@ -75,7 +75,7 @@ SinglePHP
         {
             class Index extends Base
             {
-                public function _run()
+                public function run()
                 {
                     echo "hello world";
                     echo testFunction();
@@ -91,7 +91,7 @@ SinglePHP
         {
             class Prize  extends \Controller\Base implements \Controller\Inter\Test
             {
-                public function _run()
+                public function run()
                 {
                     $this->add();
                     $this->del();
