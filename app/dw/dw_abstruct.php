@@ -523,7 +523,7 @@ abstract class Dw_Abstruct
             $parse = array_map(array($this->db, 'escapeString'), $parse);
             $sql = vsprintf($sql, $parse);
         } else {
-            $sql = strstr($sql, array('__TABLE__' => $this->tableName));
+            $sql = strtr($sql, array('__TABLE__' => $this->tableName));
             $sql = preg_replace_callback('/__([A-Z_-]+)__/sU', function ($match) {
                 return strtolower($match[1]);
             }, $sql);

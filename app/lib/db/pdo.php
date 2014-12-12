@@ -359,9 +359,9 @@ final class Pdo extends Db
     {
         if (!is_numeric($key) && $this->dbType == 'MYSQL') {
             $key = trim($key);
-            if (!preg_match('/[,\'\"\*\(\)`.\s]/', $key)) {
-                $key = '`' . $key . '`';
-            }
+//            if (!preg_match('/[,\'\"\*\(\)`.\s]/', $key)) {
+//                //$key = '`' . $key . '`';
+//            }
             return $key;
         } else {
             return parent::parseKey($key);

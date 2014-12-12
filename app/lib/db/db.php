@@ -278,6 +278,7 @@ class Db
      * where分析
      * @param $where
      * @return string
+     * @throws \Single\SingleException
      */
     protected function parseWhere($where)
     {
