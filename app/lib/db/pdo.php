@@ -376,7 +376,7 @@ final class Pdo extends Db
     protected function parseValue($value)
     {
         if (is_string($value)) {
-            $value = strpos($value, ':') === 0 ? $this->escapeString($value) : '\\' . $this->escapeString($value) . '\\';
+            $value = strpos($value, ':') === 0 ? $this->escapeString($value) : '\'' . $this->escapeString($value) . '\'';
         } elseif (isset($value[0]) && is_string($value[0]) && strtolower($value[0] == 'exp')) {
             $value = $this->escapeString($value[1]);
         } elseif (is_array($value)) {
