@@ -446,6 +446,7 @@ class Log
      */
     public static function write($msg, $level = 'DEBUG', $wf = false)
     {
+        $msg = str_replace(array("\n", "\t"), ' ', $msg); //日志中不能有换行符
         $msg = date('[Y-m-d H:i:s]') . " [{$level}] " . $msg . "\r\n";
         $logPath = C('LOG_PATH') . DS . date('Ymd') . '.log';
         if ($wf) {
