@@ -148,7 +148,7 @@ class SinglePHP
                 $uri = parse_url($_SERVER['REQUEST_URI']);
                 $pathInfo = $uri['path'];
             }
-            $pathInfoArr = array_filter(explode(DS, trim($pathInfo, DS)));
+            $pathInfoArr = array_filter(explode('/', trim($pathInfo, '/')));
             $length = count($pathInfoArr);
             if ($length == 0) {
                 $this->c = 'index';
