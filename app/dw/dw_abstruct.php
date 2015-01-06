@@ -63,8 +63,8 @@ abstract class Dw_Abstruct
 
     /**
      * 构造方法 取得DB类的实例对象
-     * @param $dbAlia 数据库别名
-     * @param $tableName 数据表名
+     * @param $dbAlia string 数据库别名
+     * @param $tableName string 数据表名
      * @param array $config 配置项
      */
     public function __construct($dbAlia, $tableName, $config = array())
@@ -80,10 +80,10 @@ abstract class Dw_Abstruct
 
     /**
      * 利用__call方法实现一些特殊的Model方法
-     * @param $method 方法名称
-     * @param $args 调用参数
+     * @param $method string 方法名称
+     * @param $args  array 调用参数
      * @return $this|array|mixed|null
-     * @throws Dr_Exception
+     * @throws Dw_Exception
      */
     public function __call($method, $args)
     {
@@ -105,10 +105,8 @@ abstract class Dw_Abstruct
             $name = parse_name(substr($method, 10));
             $where[$name] = $args[0];
             return $this->where($where)->getField($args[1]);
-        } elseif (isset($this->_scope[$method])) { // 命名范围的单独调用支持
-            return $this->scope($method, $args[0]);
         } else {
-            throw new Dr_Exception(__CLASS__ . ' : ' . $method . 'NOT EXIST');
+            throw new Dw_Exception(__CLASS__ . ' : ' . $method . 'NOT EXIST');
         }
     }
 
@@ -510,8 +508,8 @@ abstract class Dw_Abstruct
 
     /**
      * 解析SQL语句
-     * @param $sql SQL指令
-     * @param $parse 是否需要解析SQL
+     * @param $sql string SQL指令
+     * @param $parse boolean 是否需要解析SQL
      * @return mixed|string
      */
     public function parseSql($sql, $parse)
@@ -523,7 +521,7 @@ abstract class Dw_Abstruct
             $parse = array_map(array($this->db, 'escapeString'), $parse);
             $sql = vsprintf($sql, $parse);
         } else {
-            $sql = strtr($sql, array('__TABLE__' => $this->tableName));
+            $sql = strstr($sql, array('__TABLE__' => $this->tableName));
             $sql = preg_replace_callback('/__([A-Z_-]+)__/sU', function ($match) {
                 return strtolower($match[1]);
             }, $sql);

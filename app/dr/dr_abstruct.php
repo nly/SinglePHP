@@ -63,8 +63,8 @@ abstract class Dr_Abstruct
 
     /**
      * 构造方法 取得DB类的实例对象
-     * @param $dbAlia 数据库别名
-     * @param $tableName 数据表名
+     * @param $dbAlia string 数据库别名
+     * @param $tableName string 数据表名
      * @param array $config 配置项
      */
     public function __construct($dbAlia, $tableName, $config = array())
@@ -72,7 +72,8 @@ abstract class Dr_Abstruct
         $dbconf = Config::get('db_pool.' . $dbAlia)['read'];
         $this->config = array_merge($dbconf, $config);
         $this->tableName = $tableName;
-        if (!$this->db) { // 数据库初始化操作
+        if (!$this->db) {
+            // 数据库初始化操作
             $this->db = Db::getInstance($this->config);
         }
         return $this->db;
@@ -80,8 +81,8 @@ abstract class Dr_Abstruct
 
     /**
      * 利用__call方法实现一些特殊的Model方法
-     * @param $method 方法名称
-     * @param $args 调用参数
+     * @param $method string 方法名称
+     * @param $args array 调用参数
      * @return $this|array|mixed|null
      * @throws \Lib\Exception\Dr_Exception
      */
@@ -105,8 +106,6 @@ abstract class Dr_Abstruct
             $name = parse_name(substr($method, 10));
             $where[$name] = $args[0];
             return $this->where($where)->getField($args[1]);
-        } elseif (isset($this->_scope[$method])) { // 命名范围的单独调用支持
-            return $this->scope($method, $args[0]);
         } else {
             throw new Dr_Exception(__CLASS__ . ' : ' . $method . 'NOT EXIST');
         }
@@ -150,7 +149,8 @@ abstract class Dr_Abstruct
             }
             $options = array();
             $options['where'] = $where;
-        } elseif (false === $options) { // 用于子查询 只返回SQL不查询
+        } elseif (false === $options) {
+            // 用于子查询 只返回SQL不查询
             $options = array();
             // 分析表达式
             $options = $this->parseOptions($options);
@@ -161,7 +161,8 @@ abstract class Dr_Abstruct
         if (false === $result) {
             return false;
         }
-        if (empty($result)) { // 查询结果为空
+        if (empty($result)) {
+            // 查询结果为空
             return null;
         }
         return $result;
@@ -245,7 +246,10 @@ abstract class Dr_Abstruct
      */
     public function union($union, $all = false)
     {
-        if (empty($union)) return $this;
+        if (empty($union)) {
+            return $this;
+        }
+
         if ($all) {
             $this->options['union']['_all'] = true;
         }
@@ -275,10 +279,12 @@ abstract class Dr_Abstruct
      */
     public function field($field, $except = false)
     {
-        if (true === $field) { //获取全部字段
+        if (true === $field) {
+            //获取全部字段
             $fields = $this->getDbFields();
             $field = $fields ? $fields : '*';
-        } elseif ($except) { //字段排除
+        } elseif ($except) {
+            //字段排除
             if (is_string($field)) {
                 $field = explode(',', $field);
             }
@@ -291,7 +297,7 @@ abstract class Dr_Abstruct
 
     /**
      * 指定查询条件 支持安全过滤
-     * @param $where 条件表达式
+     * @param $where mixed 条件表达式
      * @param null $parse 预处理参数
      * @return $this
      */
@@ -322,7 +328,7 @@ abstract class Dr_Abstruct
 
     /**
      * 指定查询数量
-     * @param $offset 起始位置
+     * @param $offset int 起始位置
      * @param null $length 查询数量
      * @return $this
      */
@@ -334,7 +340,7 @@ abstract class Dr_Abstruct
 
     /**
      * 指定分页
-     * @param $page 页数
+     * @param $page int 页数
      * @param null $ListRows 每页数量
      * @return $this
      */
@@ -389,7 +395,8 @@ abstract class Dr_Abstruct
         if (is_array($options)) {
             $options = array_merge($this->options, $options);
         }
-        if (!isset($options['table'])) { // 自动获取表名
+        if (!isset($options['table'])) {
+            // 自动获取表名
             $options['table'] = $this->tableName;
         }
         $this->options = array();
@@ -398,16 +405,17 @@ abstract class Dr_Abstruct
 
     /**
      * 获取一条记录的某个字段值
-     * @param $field 字段名
+     * @param $field string 字段名
      * @param null $sepa 字段数据间隔符号 NULL返回数组
      * @return array|mixed|null
      */
     public function getField($field, $sepa = null)
     {
         $options['field'] = $field;
-        $options = $this->_parseOptions($options);
+        $options = $this->parseOptions($options);
         $field = trim($field);
-        if (strpos($field, ',')) { // 多字段
+        if (strpos($field, ',')) {
+            // 多字段
             if (!isset($options['limit'])) {
                 $options['limit'] = is_numeric($sepa) ? $sepa : '';
             }
@@ -429,9 +437,11 @@ abstract class Dr_Abstruct
                 }
                 return $cols;
             }
-        } else { // 查找一条记录
+        } else {
+            // 查找一条记录
             // 返回数据个数
-            if (true !== $sepa) { // 当sepa指定为true的时候 返回所有数据
+            if (true !== $sepa) {
+                // 当sepa指定为true的时候 返回所有数据
                 $options['limit'] = is_numeric($sepa) ? $sepa : 1;
             }
             $result = $this->db->select($options);
@@ -455,7 +465,8 @@ abstract class Dr_Abstruct
      */
     public function getDbFields()
     {
-        if (isset($this->options['table'])) { // 动态指定表名
+        if (isset($this->options['table'])) {
+            // 动态指定表名
             $array = explode(' ', $this->options['table']);
             $fields = $this->db->getFields($array[0]);
             return $fields ? array_keys($fields) : false;
@@ -470,7 +481,7 @@ abstract class Dr_Abstruct
 
     /**
      * SQL查询
-     * @param $sql SQL指令
+     * @param $sql string SQL指令
      * @param bool $parse 是否需要解析SQL
      * @return mixed
      */
@@ -486,8 +497,8 @@ abstract class Dr_Abstruct
 
     /**
      * 解析SQL语句
-     * @param $sql SQL指令
-     * @param $parse 是否需要解析SQL
+     * @param $sql string SQL指令
+     * @param $parse boolean 是否需要解析SQL
      * @return mixed|string
      */
     public function parseSql($sql, $parse)

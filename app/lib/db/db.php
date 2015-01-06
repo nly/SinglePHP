@@ -132,7 +132,9 @@ class Db
      */
     protected function initConnect()
     {
-        if (!$this->connected) $this->link = $this->connect();
+        if (!$this->connected) {
+            $this->link = $this->connect();
+        }
     }
 
     /**
@@ -142,7 +144,10 @@ class Db
      */
     protected function parseLock($lock = false)
     {
-        if (!$lock) return '';
+        if (!$lock) {
+            return '';
+        }
+
         if ('ORACLE' == $this->dbType) {
             return ' FOR UPDATE NOWAIT ';
         }
@@ -159,7 +164,8 @@ class Db
         foreach ($data as $key => $val) {
             if (is_array($val) && 'exp' == $val[0]) {
                 $set[] = $this->parseKey($key) . '=' . $val[1];
-            } elseif (is_scalar($val) || is_null($val)) { // 过滤非标量数据
+            } elseif (is_scalar($val) || is_null($val)) {
+                // 过滤非标量数据
                 $set[] = $this->parseKey($key) . '=' . $this->parseValue($val);
             }
         }
@@ -168,8 +174,8 @@ class Db
 
     /**
      * 参数绑定
-     * @param $name 绑定参数名
-     * @param $value 绑定值
+     * @param $name string 绑定参数名
+     * @param $value string 绑定值
      */
     protected function bindParam($name, $value)
     {
@@ -278,7 +284,6 @@ class Db
      * where分析
      * @param $where
      * @return string
-     * @throws \Single\SingleException
      */
     protected function parseWhere($where)
     {
@@ -286,7 +291,8 @@ class Db
         if (is_string($where)) {
             // 直接使用字符串条件
             $whereStr = $where;
-        } else { // 使用数组表达式
+        } else {
+            // 使用数组表达式
             $operate = isset($where['_logic']) ? strtoupper($where['_logic']) : '';
             if (in_array($operate, array('AND', 'OR', 'XOR'))) {
                 // 定义逻辑运算规则 例如 OR XOR AND NOT
@@ -311,7 +317,8 @@ class Db
                     // 多条件支持
                     $multi = is_array($val) && isset($val['_multi']);
                     $key = trim($key);
-                    if (strpos($key, '|')) { // 支持 name|title|nickname 方式定义查询字段
+                    if (strpos($key, '|')) {
+                        // 支持 name|title|nickname 方式定义查询字段
                         $array = explode('|', $key);
                         $str = array();
                         foreach ($array as $m => $k) {
@@ -350,9 +357,11 @@ class Db
         $whereStr = '';
         if (is_array($value)) {
             if (is_string($value[0])) {
-                if (preg_match('/^(EQ|NEQ|GT|EGT|LT|ELT)$/i', $value[0])) { // 比较运算
+                if (preg_match('/^(EQ|NEQ|GT|EGT|LT|ELT)$/i', $value[0])) {
+                    // 比较运算
                     $whereStr .= $key . ' ' . $this->comparison[strtolower($value[0])] . ' ' . $this->parseValue($value[1]);
-                } elseif (preg_match('/^(LIKE|NOTLIKE)$/i', $value[0])) { // 模糊查找
+                } elseif (preg_match('/^(LIKE|NOTLIKE)$/i', $value[0])) {
+                    // 模糊查找
                     if (is_array($value[1])) {
                         $likeLogic = isset($value[2]) ? strtoupper($value[2]) : 'OR';
                         if (in_array($likeLogic, array('AND', 'OR', 'XOR'))) {
@@ -366,9 +375,11 @@ class Db
                     } else {
                         $whereStr .= $key . ' ' . $this->comparison[strtolower($value[0])] . ' ' . $this->parseValue($value[1]);
                     }
-                } elseif ('exp' == strtolower($value[0])) { // 使用表达式
+                } elseif ('exp' == strtolower($value[0])) {
+                    // 使用表达式
                     $whereStr .= ' (' . $key . ' ' . $value[1] . ') ';
-                } elseif (preg_match('/IN/i', $value[0])) { // IN 运算
+                } elseif (preg_match('/IN/i', $value[0])) {
+                    // IN 运算
                     if (isset($value[2]) && 'exp' == $value[2]) {
                         $whereStr .= $key . ' ' . strtoupper($value[0]) . ' ' . $value[1];
                     } else {
@@ -378,7 +389,8 @@ class Db
                         $zone = implode(',', $this->parseValue($value[1]));
                         $whereStr .= $key . ' ' . strtoupper($value[0]) . ' (' . $zone . ')';
                     }
-                } elseif (preg_match('/BETWEEN/i', $value[0])) { // BETWEEN运算
+                } elseif (preg_match('/BETWEEN/i', $value[0])) {
+                    // BETWEEN运算
                     $data = is_string($value[1]) ? explode(',', $value[1]) : $value[1];
                     $whereStr .= ' (' . $key . ' ' . strtoupper($value[0]) . ' ' . $this->parseValue($data[0]) . ' AND ' . $this->parseValue($data[1]) . ' )';
                 } else {
@@ -386,7 +398,7 @@ class Db
                 }
             } else {
                 $count = count($value);
-                $rule = isset($value[$count - 1]) ? (is_array($value[$count - 1])) ? strtoupper($value[$count - 1][0]) : strtoupper($value[$count - 1]) : '';
+                $rule = isset($value[$count - 1]) ? (is_array($value[$count - 1])) ? strtoupper($value[$count - 1][0]) : strtoupper($value[$count - 1]):'';
                 if (in_array($rule, array('AND', 'OR', 'XOR'))) {
                     $count--;
                 } else {
@@ -437,8 +449,10 @@ class Db
                     $op = ' AND ';
                 }
                 $array = array();
-                foreach ($where as $field => $data)
+                foreach ($where as $field => $data) {
                     $array[] = $this->parseKey($field) . ' = ' . $this->parseValue($data);
+                }
+
                 $whereStr = implode($op, $array);
                 break;
         }
@@ -533,7 +547,10 @@ class Db
      */
     protected function parseUnion($union)
     {
-        if (empty($union)) return '';
+        if (empty($union)) {
+            return '';
+        }
+
         if (isset($union['_all'])) {
             $str = 'UNION ALL ';
             unset($union['_all']);
@@ -563,6 +580,7 @@ class Db
             } elseif (is_scalar($val) || is_null($val)) {
                 $fields[] = $this->parseKey($Key);
                 $name = '_' . $Key . '_';
+                $name = str_replace('`', '', $name);
                 $values[] = ':' . $name;
                 $this->bindParam($name, $val);
             }
@@ -600,13 +618,13 @@ class Db
     public function update($data, $options)
     {
         $sql = 'UPDATE '
-            . $this->parseTable($options['table'])
-            . $this->parseSet($data)
-            . $this->parseWhere(!empty($options['where']) ? $options['where'] : '')
-            . $this->parseOrder(!empty($options['order']) ? $options['order'] : '')
-            . $this->parseLimit(!empty($options['limit']) ? $options['limit'] : '')
-            . $this->parseLock(isset($options['lock']) ? $options['lock'] : false)
-            . $this->parseComment(!empty($options['comment']) ? $options['comment'] : '');
+        . $this->parseTable($options['table'])
+        . $this->parseSet($data)
+        . $this->parseWhere(!empty($options['where']) ? $options['where'] : '')
+        . $this->parseOrder(!empty($options['order']) ? $options['order'] : '')
+        . $this->parseLimit(!empty($options['limit']) ? $options['limit'] : '')
+        . $this->parseLock(isset($options['lock']) ? $options['lock'] : false)
+        . $this->parseComment(!empty($options['comment']) ? $options['comment'] : '');
         return $this->execute($sql, $this->parseBind(!empty($options['bind']) ? $options['bind'] : array()));
     }
 
@@ -618,12 +636,12 @@ class Db
     public function delete($options = array())
     {
         $sql = 'DELETE FROM '
-            . $this->parseTable($options['table'])
-            . $this->parseWhere(!empty($options['where']) ? $options['where'] : '')
-            . $this->parseOrder(!empty($options['order']) ? $options['order'] : '')
-            . $this->parseLimit(!empty($options['limit']) ? $options['limit'] : '')
-            . $this->parseLock(isset($options['lock']) ? $options['lock'] : false)
-            . $this->parseComment(!empty($options['comment']) ? $options['comment'] : '');
+        . $this->parseTable($options['table'])
+        . $this->parseWhere(!empty($options['where']) ? $options['where'] : '')
+        . $this->parseOrder(!empty($options['order']) ? $options['order'] : '')
+        . $this->parseLimit(!empty($options['limit']) ? $options['limit'] : '')
+        . $this->parseLock(isset($options['lock']) ? $options['lock'] : false)
+        . $this->parseComment(!empty($options['comment']) ? $options['comment'] : '');
         return $this->execute($sql, $this->parseBind(!empty($options['bind']) ? $options['bind'] : array()));
     }
 
@@ -653,9 +671,9 @@ class Db
             } else {
                 $page = $options['page'];
             }
-            $page = $page ? : 1;
+            $page = $page ?: 1;
             $listRows = isset($listRows) ? $listRows : (is_numeric($options['limit']) ? $options['limit'] : 20);
-            $offset = $listRows * ((int)$page - 1);
+            $offset = $listRows * ((int) $page - 1);
             $options['limit'] = $offset . ',' . $listRows;
         }
         $sql = $this->parseSql($this->selectSql, $options);
@@ -684,7 +702,7 @@ class Db
                 $this->parseOrder(!empty($options['order']) ? $options['order'] : ''),
                 $this->parseLimit(!empty($options['limit']) ? $options['limit'] : ''),
                 $this->parseUnion(!empty($options['union']) ? $options['union'] : ''),
-                $this->parseComment(!empty($options['comment']) ? $options['comment'] : '')
+                $this->parseComment(!empty($options['comment']) ? $options['comment'] : ''),
             ), $sql);
         return $sql;
     }

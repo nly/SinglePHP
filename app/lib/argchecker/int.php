@@ -29,7 +29,7 @@ class Int
      */
     public static function min($data, $min)
     {
-        return $data > $min;
+        return $data >= $min;
     }
 
     /**
@@ -40,7 +40,7 @@ class Int
      */
     public static function max($data, $max)
     {
-        return $data < $max;
+        return $data <= $max;
     }
 
     /**

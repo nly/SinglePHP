@@ -34,7 +34,7 @@ abstract class Dto_Abstract extends \ArrayObject
 
     protected $argchecker_ns = 'Lib\Argchecker\\';
 
-    public function __construct($init_data = NULL, $mode = self::MODE_INPUT)
+    public function __construct($init_data = null, $mode = self::MODE_INPUT)
     {
         parent::setFlags(\ArrayObject::ARRAY_AS_PROPS);
         $this->set_dto_mode($mode);
@@ -146,6 +146,7 @@ abstract class Dto_Abstract extends \ArrayObject
                 $arg_args = $this->fields[$field_name];
                 $arg_type = $arg_args[0];
                 $arg_args['0'] = $value;
+
                 $valid_value = call_user_func_array(array($this->argchecker_ns . 'Argchecker', $arg_type), $arg_args);
             }
         } elseif ($this->fields[$field_name]) {
@@ -237,4 +238,3 @@ abstract class Dto_Abstract extends \ArrayObject
         parent::exchangeArray(array());
     }
 }
-

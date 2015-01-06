@@ -17,6 +17,7 @@ $config = array(
     'APP_PATH' => ROOT_PATH . DS . 'app',
     'LOG_PATH' => ROOT_PATH . DS . 'logs',
     'USE_SESSION' => true, //开启SESSION会话
+    'INIT_CONTEXT' => true, //开启上下文，删除$_SERVER
     'SHOW_LOAD_TIME' => true, //显示执行耗时
     'OUTPUT_ENCODE' => false, //压缩模板代码
     'DEBUG_MODE' => true, //开启调试模式

@@ -9,6 +9,9 @@
  */
 
 namespace Single;
+
+use Lib\Util\Context;
+
 register_shutdown_function('Single\shutdown');
 date_default_timezone_set('Asia/Shanghai');
 
@@ -16,7 +19,7 @@ date_default_timezone_set('Asia/Shanghai');
  * 获取和设置配置参数 支持批量定义
  * 如果$key是关联型数组，则会按K-V的形式写入配置
  * 如果$key是数字索引数组，则返回对应的配置数组
- * @param $key 配置变量
+ * @param $key string 配置变量
  * @param null $value 配置值
  * @return array|bool|null
  * @throws \Exception
@@ -25,11 +28,13 @@ function C($key, $value = null)
 {
     static $_config = array();
     if ($value === null) {
-        if (is_string($key)) { //如果传入的key是字符串
+        if (is_string($key)) {
+            //如果传入的key是字符串
             return isset($_config[$key]) ? $_config[$key] : null;
         }
         if (is_array($key)) {
-            if (array_keys($key) !== range(0, count($key) - 1)) { //如果传入的key是关联数组
+            if (array_keys($key) !== range(0, count($key) - 1)) {
+                //如果传入的key是关联数组
                 $_config = array_merge($_config, $key);
             } else {
                 $ret = array();
@@ -51,7 +56,7 @@ function C($key, $value = null)
 
 /**
  * 调用Widget
- * @param $name widget名
+ * @param $name string widget名
  * @param array $data 传递给widget的变量列表，key为变量名，value为变量值
  * @throws \Exception
  */
@@ -88,11 +93,6 @@ class SinglePHP
      * @var string
      */
     private $c;
-    /**
-     * Action
-     * @var string
-     */
-    private $a;
     /**
      * 单例
      * @var SinglePHP
@@ -139,7 +139,7 @@ class SinglePHP
             if (C('USE_SESSION') == true) {
                 session_start();
             }
-            require(C('APP_PATH') . DS . 'common.php');
+            require C('APP_PATH') . DS . 'common.php';
             spl_autoload_register(array('\Single\SinglePHP', 'autoload'));
             if (CLI) {
                 global $argv;
@@ -169,9 +169,9 @@ class SinglePHP
             if (!method_exists($controller, 'run')) {
                 throw new \Exception('Controller ' . $controllerClass . ' does not has run() method');
             }
-            $begin = microtime(TRUE);
+            $begin = microtime(true);
             $class->getMethod('run')->invoke($controller); // main
-            $end = microtime(TRUE);
+            $end = microtime(true);
             if (C('SHOW_LOAD_TIME')) {
                 echo sprintf('<br />Time： %.4f ms', ($end - $begin) * 1000);
             }
@@ -192,7 +192,7 @@ class SinglePHP
 
     /**
      * 自动加载函数
-     * @param $class 类名
+     * @param $class string 类名
      * @throws \Exception
      */
     public static function autoload($class)
@@ -202,7 +202,7 @@ class SinglePHP
         if (!file_exists($file)) {
             throw new \Exception('File ' . $file . ' does not exist');
         }
-        require($file);
+        require $file;
 
     }
 
@@ -224,6 +224,9 @@ class Controller
      */
     public function __construct()
     {
+        if (C('INIT_CONTEXT')) {
+            Context::init();
+        }
         $this->_view = Register::get('Single\View');
         $this->_init();
     }
@@ -270,7 +273,7 @@ class Controller
      */
     protected function ajaxReturn($data)
     {
-        header("Content-type:application/json; charset=utf-8");
+        header("Content-type:text/html; charset=utf-8");
         echo json_encode($data);
         exit;
     }
@@ -360,7 +363,7 @@ class View
      */
     public static function tplInclude($path, $data = array())
     {
-        self::$tmpData = array('path' => C('APP_PATH') . DS . 'tpl' . DS . $path . '.html', 'data' => $data,);
+        self::$tmpData = array('path' => C('APP_PATH') . DS . 'tpl' . DS . $path . '.html', 'data' => $data);
         unset($path);
         unset($data);
         extract(self::$tmpData['data']);
@@ -518,8 +521,8 @@ class Register
      * get or set an object
      * @param $key
      * @param array $args
-     * @return mixed
-     * @throws \SingleException
+     * @return static
+     * @throws SingleException
      */
     public static function get($key, array $args = array())
     {
@@ -528,12 +531,12 @@ class Register
         if (!isset(self::$register_global[$unique_key])) {
             $class = new \ReflectionClass($key);
             if ($class->isAbstract()) {
-                throw new \SingleException("class {$key} can not be abstruct");
+                throw new SingleException("class {$key} can not be abstruct");
             }
             self::$register_global[$unique_key] = $class->newInstanceArgs($args);
 
         }
-        return self::$register_global[$unique_key];;
+        return self::$register_global[$unique_key];
     }
 
     /**
