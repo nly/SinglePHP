@@ -43,6 +43,134 @@ class Context
     }
 
     /**
+     * filter method for Global vars , controller should exec this
+     */
+    public static function filter()
+    {
+        if (is_array($_SERVER)) {
+            foreach ($_SERVER as $k => $v) {
+                if (isset($_SERVER[$k])) {
+                    $_SERVER[$k] = str_replace(array('<', '>', '"', "'", '%3C', '%3E', '%22', '%27', '%3c', '%3e'), '', $v);
+                }
+            }
+        }
+        unset($_ENV, $HTTP_GET_VARS, $HTTP_POST_VARS, $HTTP_COOKIE_VARS, $HTTP_SERVER_VARS, $HTTP_ENV_VARS);
+        self::filter_slashes($_GET);
+        self::filter_slashes($_POST);
+        self::filter_slashes($_COOKIE);
+        self::filter_slashes($_FILES);
+        self::filter_slashes($_REQUEST);
+    }
+
+    /**
+     * filter slashes,for SQL insert 加反斜杠，防止SQL注入
+     * @param $value
+     * @return bool
+     */
+    private static function filter_slashes(&$value)
+    {
+        if (get_magic_quotes_gpc()) return false; //魔术变量 Always returns FALSE because the magic quotes feature was removed from PHP5.4
+        $value = (array)$value;
+        foreach ($value as $key => $val) {
+            if (is_array($val)) {
+                self::filter_slashes($value[$key]);
+            } else {
+                $value[$key] = addslashes($val);
+            }
+        }
+    }
+
+    /**
+     * 安全过滤-过滤javascript,css,iframes,object等不安全参数 过滤级别高
+     * @param $value
+     * @return mixed
+     */
+    public static function filter_script($value)
+    {
+        if (is_array($value)) {
+            foreach ($value as $k => $v) {
+                $value[$k] = self::filter_script($v);
+            }
+            return $value;
+        } else {
+            $parten = array(
+                "/(javascript:)?on(click|load|key|mouse|error|abort|move|unload|change|dblclick|move|reset|resize|submit)/i",
+                "/<script(.*?)>(.*?)<\/script>/si",
+                "/<iframe(.*?)>(.*?)<\/iframe>/si",
+                "/<object.+<\/object>/isU"
+            );
+            $replace = array("\\2", "", "", "");
+            $value = preg_replace($parten, $replace, $value, -1, $count);
+            if ($count > 0) {
+                $value = self::filter_script($value);
+            }
+            return $value;
+        }
+    }
+
+    /**
+     * 安全过滤-过滤HTML标签
+     * @param $value
+     * @return mixed|string
+     */
+    public static function filter_html($value)
+    {
+        if (is_array($value)) {
+            foreach ($value as $k => $v) {
+                $value[$k] = self::filter_html($v);
+            }
+            return $value;
+        } else {
+            if (function_exists('htmlspecialchars')) return htmlspecialchars($value);
+            return str_replace(array("&", '"', "'", "<", ">"), array("&amp;", "&quot;", "&#039;", "&lt;", "&gt;"), $value);
+        }
+    }
+
+    /**
+     * 安全过滤-对进入的数据进行过滤 防止SQL注入 安全级别高
+     * @param $value
+     * @return mixed
+     */
+    public static function filter_sql($value)
+    {
+        $sql = array("select", 'insert', "update", "delete", "\'", "\/\*", "\.\.\/", "\.\/", "union", "into", "load_file", "outfile");
+        $sql_re = array("", "", "", "", "", "", "", "", "", "", "", "");
+        return str_replace($sql, $sql_re, $value);
+    }
+
+    /**
+     * 安全过滤-通用数据过滤
+     * @param $value
+     * @return array|mixed
+     */
+    public static function filter_escape($value)
+    {
+        if (is_array($value)) {
+            foreach ($value as $k => $v) {
+                $value[$k] = self::filter_str($v);
+            }
+        } else {
+            $value = self::filter_str($value);
+        }
+        return $value;
+    }
+
+    /**
+     * 安全过滤-字符串过滤 过滤特殊有危害字符
+     * @param $value
+     * @return mixed
+     */
+    private static function filter_str($value)
+    {
+        $value = str_replace(array("\0", "%00", "\r"), '', $value);
+        $value = preg_replace(array('/[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F]/', '/&(?!(#[0-9]+|[a-z]+);)/is'), array('', '&amp;'), $value);
+        $value = str_replace(array("%3C", '<'), '&lt;', $value);
+        $value = str_replace(array("%3E", '>'), '&gt;', $value);
+        $value = str_replace(array('"', "'", "\t", '  '), array('&quot;', '&#39;', '    ', '&nbsp;&nbsp;'), $value);
+        return $value;
+    }
+
+    /**
      * 转换过滤字符串
      *
      * @param string $string
@@ -74,15 +202,24 @@ class Context
 
     /**
      * 从$_POST中获取指定参数的值。如果指定参数未找到，则会返回默认值$if_not_exist的值。
-     *
-     * @param string $name 参数名。
-     * @param mixed $if_not_exist 若指定的$name的值不存在的情况下返回的默认值。可选，采用NULL作为默认值。
-     * @return string
+     * @param $name string 参数名称
+     * @param null $if_not_exist 若指定的$name的值不存在的情况下返回的默认值。可选，采用NULL作为默认值。
+     * @param array $filters 参数过滤方法 (script,html,escape,sql)
+     * @return mixed
      */
-    public static function form($name, $if_not_exist = NULL)
+    public static function form($name, $if_not_exist = NULL, $filters = [])
     {
-        return isset($_POST[$name]) ? $_POST[$name] : $if_not_exist;
+        if (!isset($_POST[$name])) return $if_not_exist;
+        if (!empty($filters)) {
+            foreach ($filters as $filter) {
+                $_POST[$name] = call_user_func('self::filter_' . $filter, $_POST[$name]);
+            }
+        }
+        return $_POST[$name];
     }
+
+    private static $req = array();
+    private static $inited_req = false;
 
     /**
      * 从$_POST和$_GET中获取指定参数的值。如果指定参数未找到,则会返回默认值$if_not_exist的值。
@@ -91,16 +228,19 @@ class Context
      * @param mixed $if_not_exist 若指定的$name的值不存在的情况下返回的默认值。可选，采用NULL作为默认值。
      * @return string
      */
-    private static $req = array();
-    private static $inited_req = false;
-
-    public static function r($name, $if_not_exist = NULL)
+    public static function r($name, $if_not_exist = NULL, $filters = [])
     {
         if (self::$inited_req === false) {
             self::$req = array_merge($_GET, $_POST);
             self::$inited_req = true;
         }
-        return isset(self::$req[$name]) ? self::$req[$name] : $if_not_exist;
+        if (!isset(self::$req[$name])) return $if_not_exist;
+        if (!empty($filters)) {
+            foreach ($filters as $filter) {
+                self::$req[$name] = call_user_func('self::filter_' . $filter, self::$req[$name]);
+            }
+        }
+        return self::$req[$name];
     }
 
     /**
