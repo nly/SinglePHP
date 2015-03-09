@@ -199,9 +199,6 @@ class SinglePHP
     {
         $classFile = strtolower(str_replace('\\', DS, $class));
         $file = C('APP_PATH') . DS . $classFile . '.php';
-        if (!file_exists($file)) {
-            throw new \Exception('File ' . $file . ' does not exist');
-        }
         require $file;
 
     }
