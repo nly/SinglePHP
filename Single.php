@@ -245,9 +245,9 @@ class Controller
      */
     protected function display($tpl = '')
     {
-        $trace = debug_backtrace();
-        $controller = strtolower(str_replace('\\', DS, substr($trace[1]['class'], 11)));
         if ($tpl === '') {
+            $trace = debug_backtrace();
+            $controller = strtolower(str_replace('\\', DS, substr($trace[1]['class'], 11)));
             $tpl = $controller;
         }
         $this->_view->display($tpl);
