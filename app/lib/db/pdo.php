@@ -164,9 +164,9 @@ final class Pdo extends Db
     public function startTrans()
     {
         $this->initConnect();
-        if ($this->link) return false;
+        if (!$this->link) return false;
         if ($this->transTimes == 0) {
-            $this->link->beginTransation();
+            $this->link->beginTransaction();
         }
         $this->transTimes++;
         return true;
@@ -412,6 +412,9 @@ final class Pdo extends Db
         }
         if ($this->queryStr) {
             $this->error .= ' [ SQL ERROR ] : ' . $this->queryStr;
+        }
+        if (C('DEBUG_MODE')) { // show error msg under debug mode
+            echo $this->error;
         }
         Log::fatal($this->error);
         return $this->error;

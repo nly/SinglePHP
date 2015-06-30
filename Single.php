@@ -503,7 +503,7 @@ class Log
 }
 
 /**
- * 对象注册数
+ * 对象注册树
  * Class Register
  * @package Single
  */

@@ -258,7 +258,7 @@ abstract class Dw_Abstruct
     public function startTrans()
     {
         $this->commit();
-        $this->db->startTrans();
+        return $this->db->startTrans();
     }
 
     /**
@@ -266,7 +266,7 @@ abstract class Dw_Abstruct
      */
     public function commit()
     {
-        $this->db->commit();
+        return $this->db->commit();
     }
 
     /**
@@ -274,7 +274,7 @@ abstract class Dw_Abstruct
      */
     public function rollback()
     {
-        $this->db->rollback();
+        return $this->db->rollback();
     }
 
     /**
